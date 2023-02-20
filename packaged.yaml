@@ -12,7 +12,7 @@ Resources:
   HelloWorldFunction:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: s3://pshakhlovich-sam-templates/0ece831223d61f8ddb053a16460fbcb5
+      CodeUri: s3://pshakhlovich-sam-templates/b8a4dbea5e429b59d7bdbf9f6afcb1e3
       Handler: app.lambdaHandler
       Runtime: nodejs18.x
       Architectures:
@@ -25,6 +25,22 @@ Resources:
             Method: get
     Metadata:
       SamResourceId: HelloWorldFunction
+  HelloFromPavelFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: s3://pshakhlovich-sam-templates/b8a4dbea5e429b59d7bdbf9f6afcb1e3
+      Handler: app.lambdaAnotherHandler
+      Runtime: nodejs18.x
+      Architectures:
+      - x86_64
+      Events:
+        HelloWorldFromPavel:
+          Type: Api
+          Properties:
+            Path: /hello-from-pavel
+            Method: get
+    Metadata:
+      SamResourceId: HelloFromPavelFunction
 Outputs:
   HelloWorldApi:
     Description: API Gateway endpoint URL for Prod stage for Hello World function

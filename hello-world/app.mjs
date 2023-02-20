@@ -24,3 +24,17 @@ export const lambdaHandler = async (event, context) => {
         return err;
     }
 };
+
+export const lambdaAnotherHandler = async (event, context) => {
+    try {
+        return {
+            'statusCode': 200,
+            'body': JSON.stringify({
+                message: 'hello world from Pavel!',
+            })
+        }
+    } catch (err) {
+        console.log(err);
+        return err;
+    }
+};
